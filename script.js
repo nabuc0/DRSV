@@ -168,15 +168,16 @@ async function main() {
         if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
             try {
                 const telegramBaseUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
-                // TODO: how to add the link to the blog title text?
-                const telegramMessagePtBr = `🆕 Novo post de blog criado: [${title}](https://drsv.com.br/posts/${slug})`;
+                // Creating a clickable link using HTML format since we're using HTML parse mode
+                const blogUrl = `https://drsv.com.br/posts/${slug}`;
+                const telegramMessagePtBr = `🆕 Postagem: <a href="${blogUrl}">${title}</a>`;
                 
                 // Send the product image first
                 if (image && image !== COVER_IMAGE) {
                     await axios.post(`${telegramBaseUrl}/sendPhoto`, {
                         chat_id: process.env.TELEGRAM_CHAT_ID,
                         photo: image,
-                        caption: `${telegramMessagePtBr}\n\nProduto: ${productName}`,
+                        caption: `${telegramMessagePtBr}\n\nProduto: ${productName} por <b>R$${price}</b>!`,
                         parse_mode: 'HTML'
                     });
                     
