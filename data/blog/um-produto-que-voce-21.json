@@ -1,0 +1,33 @@
+{
+  "id": "21",
+  "title": "Um produto que você vai querer: Fritadeira Airfryer Forno Philips Walita, Série 5000, 2 anos de garantia, 1600W, 110v - AI551/09",
+  "slug": "um-produto-que-voce-21",
+  "excerpt": "Um produto que você vai querer: Fritadeira Airfryer Forno Philips Walita, Série 5000, 2 anos de garantia, 1600W, 110v - AI551/09",
+  "category": "Cozinha",
+  "categorySlug": "cozinha",
+  "coverImage": "https://m.media-amazon.com/images/I/416f-QfCrqL._SL500_.jpg",
+  "publishedAt": "2025-05-17T00:00:00.000Z",
+  "productLink": "https://www.amazon.com.br/dp/B0DD1KD5JP?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B0DD1KD5JP",
+  "productBarcode": "8720389044205",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Um produto que você vai querer ver:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Fritadeira Airfryer Forno Philips Walita, Série 5000, 2 anos de garantia, 1600W, 110v - AI551/09",
+        "description": "Capacidade de 12 litros, ideal para preparar refeições para toda a família., 9 funções predefinidas: Preparo de Iogurte, Desidratação, Pão de Queijo, Batata Frita, Frango, Peixe, Pizza, Carne, Bolo + Manter Aquecido., Inclui 4 acessórios antiaderentes: 2 grelhas, 1 coletor de gordura, 1 cesto de airfryer com pegador removível e uma conveniente janela transparente para acompanhar o preparo das receitas com facilidade., 1.600W de potência., Desbloqueie novas possibilidades em sua cozinha com o App HomeID.",
+        "price": 778,
+        "image": "https://m.media-amazon.com/images/I/416f-QfCrqL._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B0DD1KD5JP?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Espero que tenha sido útil!</p>"
+    }
+  ]
+}

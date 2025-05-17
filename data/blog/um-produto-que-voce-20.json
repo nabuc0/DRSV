@@ -1,0 +1,33 @@
+{
+  "id": "20",
+  "title": "Um produto que você vai querer: Celular Samsung Galaxy S25 Ultra 5G, 512GB, 12GB RAM, Câmera Quádrupla de 200+50+10+50, Tela Grande de 6.9\", Titânio Prata",
+  "slug": "um-produto-que-voce-20",
+  "excerpt": "Um produto que você vai querer: Celular Samsung Galaxy S25 Ultra 5G, 512GB, 12GB RAM, Câmera Quádrupla de 200+50+10+50, Tela Grande de 6.9\", Titânio Prata",
+  "category": "Eletrônicos e Tecnologia",
+  "categorySlug": "eletronicos-e-tecnol",
+  "coverImage": "https://m.media-amazon.com/images/I/31RB0CcBD1L._SL500_.jpg",
+  "publishedAt": "2025-05-17T00:00:00.000Z",
+  "productLink": "https://www.amazon.com.br/dp/B0DSY663DK?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B0DSY663DK",
+  "productBarcode": "7892509142540",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Escolha do dia chegando:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Celular Samsung Galaxy S25 Ultra 5G, 512GB, 12GB RAM, Câmera Quádrupla de 200+50+10+50, Tela Grande de 6.9\", Titânio Prata",
+        "description": "Multiplas ações em um único comando de voz, Busca inteligente por imagem, voz ou texto, Processador Snapdragon 8 Elite for Galaxy (3nm), Câmera Quádrupla Traseira de 200MP + 50MP +10MP + 50MP, Bateria de 5.000mAh",
+        "price": 8139,
+        "image": "https://m.media-amazon.com/images/I/31RB0CcBD1L._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B0DSY663DK?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Como que eu consegui achar isso? Espero que tenha gostado!</p>"
+    }
+  ]
+}
