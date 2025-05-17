@@ -1,0 +1,33 @@
+{
+  "id": "12",
+  "title": "Um produto que você vai querer: Sanol Desinfetante Líquido Para Uso Geral Lavanda 5 Litros Roxo",
+  "slug": "um-produto-que-voce-12",
+  "excerpt": "Um produto que você vai querer: Sanol Desinfetante Líquido Para Uso Geral Lavanda 5 Litros Roxo",
+  "category": "Casa",
+  "categorySlug": "casa",
+  "coverImage": "https://m.media-amazon.com/images/I/411JZMl-m2L._SL500_.jpg",
+  "publishedAt": "2025-04-25T00:00:00.000Z",
+  "productLink": "https://www.amazon.com.br/dp/B077XDYZNF?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B077XDYZNF",
+  "productBarcode": "7896183308667",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Achei algo legal para você hoje:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Sanol Desinfetante Líquido Para Uso Geral Lavanda 5 Litros Roxo",
+        "description": "Deixe o produto agir por 10 minutos em casos de desinfecção de vasos sanitários, ralos e pias, Para limpeza geral, usar 4 colheres de sopa (40 ml) para 1 litro de água; não utilizar para desinfecção de alimentos, Devido à alta concentração de fragrância, deixa um agradável perfume no ambiente, não misturar com outros produtos",
+        "price": 18.73,
+        "image": "https://m.media-amazon.com/images/I/411JZMl-m2L._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B077XDYZNF?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Curtiu o achado? Tem mais vindo!</p>"
+    }
+  ]
+}

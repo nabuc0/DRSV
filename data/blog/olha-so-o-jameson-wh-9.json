@@ -1,0 +1,33 @@
+{
+  "id": "9",
+  "title": "Olha só o Jameson - Whiskey Irlandês, 750 ml que chegou!",
+  "slug": "olha-so-o-jameson-wh-9",
+  "excerpt": "Olha só o Jameson - Whiskey Irlandês, 750 ml que chegou!",
+  "category": "Alimentos e Bebidas",
+  "categorySlug": "alimentos-e-bebidas",
+  "coverImage": "https://m.media-amazon.com/images/I/41eke1b6g2L._SL500_.jpg",
+  "publishedAt": "2025-04-12T00:00:00.000Z",
+  "productLink": "https://www.amazon.com.br/dp/B07FPW95CM?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B07FPW95CM",
+  "productBarcode": "5011007015497",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Olha só o que eu encontrei:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Jameson - Whiskey Irlandês, 750 ml",
+        "description": "o whiskey jameson foi criado por john jameson em 1780 e mantem a mesma receita e qualidade até hoje., Jameson tem um leve buquê floral, apimentado por madeiras aromáticas e notas adocicadas. é produzido em tonéis de bourbon e de xerez e conta com uma cuidadosa tripla destilação., Além disso, jameson é um whiskey blended, ou seja, selecionamos os melhores whiskeys produzidos em alambiques e com cereais de qualidade. Em seguida, eles são triplamente destilados para garantir sua suavidade característica., Ingredientes: combinação de malte whiskies e destilado alcoólico simples de cereais (grain whiskey) envelhecidos e água., Sugestão de drink: tea & lime: em um copo com gelo adicione 50ml de jameson; em seguida adicione 200ml de chá de pêssego; para finalizar, esprema 1/8 de limão tahiti, Podendo jogá-lo dentro do drink após ser espremido., Whiskey irlandês",
+        "price": 76.4,
+        "image": "https://m.media-amazon.com/images/I/41eke1b6g2L._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B07FPW95CM?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Espero que tenha gostado!</p>"
+    }
+  ]
+}

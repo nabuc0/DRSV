@@ -1,0 +1,33 @@
+{
+  "id": "10",
+  "title": "O que está na moda: Whey Protein Isolado - Baunilha - 900g - Integralmédica",
+  "slug": "o-que-esta-na-moda-w-10",
+  "excerpt": "O que está na moda: Whey Protein Isolado - Baunilha - 900g - Integralmédica",
+  "category": "Saúde e Bem-Estar",
+  "categorySlug": "saude-e-bem-estar",
+  "coverImage": "https://m.media-amazon.com/images/I/41fk9yfXDcL._SL500_.jpg",
+  "publishedAt": "2025-04-14T00:00:00.000Z",
+  "productLink": "https://www.amazon.com.br/dp/B07LCTBFMJ?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B07LCTBFMJ",
+  "productBarcode": "7896311706419",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Escolha do dia chegando:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Whey Protein Isolado - Baunilha - 900g - Integralmédica",
+        "description": "【PROTEÍNA DE ALTO VALOR BIOLÓGICO】O Iso Triple Zero da Integralmédica oferece 26g de proteínas por porção, com alta concentração de aminoácidos essenciais e 6g de BCAA, essenciais para a construção muscular e recuperação pós-treino., 【SEM GORDURAS E BAIXO CARBOIDRATO】Formulado com whey protein isolado, apresenta uma composição isenta de gorduras, açúcares adicionados e glúten, sendo ideal para dietas hipocalóricas e de baixa ingestão de carboidratos., 【FAVORECE A DEFINIÇÃO MUSCULAR】 Com rápida absorção e fácil digestão, é perfeito para otimizar a síntese proteica, ajudando na manutenção e definição muscular, além de promover maior eficiência no ganho de massa magra., 【VERSÁTIL E NUTRITIVO】Com alto teor proteico, baixo índice de gorduras e carboidratos, o Iso Triple Zero promove saciedade e equilíbrio nutricional. Pode ser consumido após o treino ou em qualquer momento do dia, adaptando-se a dietas variadas e objetivos como definição e ganho de massa muscular., 【PUREZA E SABORES IRRESISTÍVEIS】Produzido com processos avançados de extração e filtração para máxima pureza, o Iso Triple Zero está disponível em 4 sabores deliciosos e nas versões de 900g e 1,8kg.",
+        "price": 192.9,
+        "image": "https://m.media-amazon.com/images/I/41fk9yfXDcL._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B07LCTBFMJ?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>O que achou? Espero que tenha gostado!</p>"
+    }
+  ]
+}

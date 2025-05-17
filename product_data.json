@@ -1,0 +1,39 @@
+{
+  "ItemsResult": {
+    "Items": [
+      {
+        "ASIN": "B07FN1MZBH",
+        "DetailPageURL": "https://www.amazon.com.br/dp/B07FN1MZBH?tag=drsv00-20&linkCode=ogi&th=1&psc=1",
+        "Images": {
+          "Primary": {
+            "Medium": {
+              "Height": 106,
+              "URL": "https://m.media-amazon.com/images/I/31hbvyAqzQL._SL160_.jpg",
+              "Width": 160
+            }
+          }
+        },
+        "ItemInfo": {
+          "Title": {
+            "DisplayValue": "Controle sem fio Dualshock 4",
+            "Label": "Title",
+            "Locale": "pt_BR"
+          }
+        },
+        "Offers": {
+          "Listings": [
+            {
+              "Id": "p3Z%2BBBg%2Fv9rvUVypMMx6nZokD550FV0oFI4O4UEvTpxwhjNOV34v5y8ZpuZYC691ZT7LYuH6uf94k7Mtn91Uot3XTbd5QnEU7c9nZks2czRXm%2BqRpXVldYI7wnt1dPiTDX%2Bu0ZpYTNTcwWgCz1msmkz0Ovwj91np",
+              "Price": {
+                "Amount": 287.13,
+                "Currency": "BRL",
+                "DisplayAmount": "R$ 287,13"
+              },
+              "ViolatesMAP": false
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "SearchResult": {
+    "Items": [
+      {
+        "ASIN": "B0CB528ZCG",
+        "BrowseNodeInfo": {
+          "BrowseNodes": [
+            {
+              "Ancestor": {
+                "Ancestor": {
+                  "Ancestor": {
+                    "Ancestor": {
+                      "ContextFreeName": "Jardim e Piscina",
+                      "DisplayName": "Jardim e Piscina",
+                      "Id": "18991021011"
+                    },
+                    "ContextFreeName": "Jardim e Piscina",
+                    "DisplayName": "Categorias",
+                    "Id": "18991022011"
+                  },
+                  "ContextFreeName": "Cortadores e Ferramentas Elétricas para Ambientes Externos",
+                  "DisplayName": "Cortadores e Ferramentas Elétricas para Ambientes Externos",
+                  "Id": "19335818011"
+                },
+                "ContextFreeName": "Lavadoras de Alta Pressão e Acessórios",
+                "DisplayName": "Lavadoras de Alta Pressão e Acessórios",
+                "Id": "19335842011"
+              },
+              "ContextFreeName": "Lavadoras de Alta Pressão",
+              "DisplayName": "Lavadoras de Alta Pressão",
+              "Id": "19335954011",
+              "IsRoot": false,
+              "SalesRank": 5
+            }
+          ],
+          "WebsiteSalesRank": {
+            "SalesRank": 37
+          }
+        },
+        "DetailPageURL": "https://www.amazon.com.br/dp/B0CB528ZCG?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+        "Images": {
+          "Primary": {
+            "Large": {
+              "Height": 500,
+              "URL": "https://m.media-amazon.com/images/I/41ZOtw5h1uL._SL500_.jpg",
+              "Width": 500
+            },
+            "Medium": {
+              "Height": 160,
+              "URL": "https://m.media-amazon.com/images/I/41ZOtw5h1uL._SL160_.jpg",
+              "Width": 160
+            }
+          }
+        },
+        "ItemInfo": {
+          "ByLineInfo": {
+            "Brand": {
+              "DisplayValue": "SAMSUNG",
+              "Label": "Brand",
+              "Locale": "pt_BR"
+            },
+            "Manufacturer": {
+              "DisplayValue": "SAMSUNG",
+              "Label": "Manufacturer",
+              "Locale": "pt_BR"
+            }
+          },
+          "Classifications": {
+            "ProductGroup": {
+              "DisplayValue": "Major Appliances",
+              "Label": "ProductGroup",
+              "Locale": "pt_BR"
+            }
+          },
+          "ExternalIds": {
+            "EANs": {
+              "DisplayValues": [
+                "8806094354867"
+              ],
+              "Label": "EAN",
+              "Locale": "en_US"
+            }
+          },
+          "ProductInfo": {
+            "Color": {
+              "DisplayValue": "Branca",
+              "Label": "Color",
+              "Locale": "pt_BR"
+            },
+            "ItemDimensions": {
+              "Weight": {
+                "DisplayValue": 22.266688462,
+                "Label": "Weight",
+                "Locale": "pt_BR",
+                "Unit": "Libras"
+              }
+            }
+          },
+          "Title": {
+            "DisplayValue": "Samsung Lava e Seca Digital Inverter Ecobubble™ WD10M Branca 10.1kg 127V",
+            "Label": "Title",
+            "Locale": "pt_BR"
+          }
+        },
+        "Offers": {
+          "Listings": [
+            {
+              "Id": "zuMYJOSp1zCYe8Kz73iawVJ2qjoXRsn41I4WKKRn58WSKCvVxLTTOU3ggZqQ%2FePTNoPqFKLywD93N0zf2XYJ%2BfUQ7JE86uqhgsldEpea2YkftLC%2Ft%2B9JZxO8tKGAXX2Re%2Buy8PypfstrmMJmYLHSYEfTtgLVlZwU2Nzh2WLb%2FTgeBx8fVjozqoCReYd1Pcxj",
+              "MerchantInfo": {
+                "DefaultShippingCountry": "BR",
+                "FeedbackCount": 6735,
+                "FeedbackRating": 4.06,
+                "Id": "AYL0JDS9UIFWO",
+                "Name": "Samsung Loja Oficial"
+              },
+              "Price": {
+                "Amount": 3134.05,
+                "Currency": "BRL",
+                "DisplayAmount": "R$ 3.134,05",
+                "Savings": {
+                  "Amount": 294.97,
+                  "Currency": "BRL",
+                  "DisplayAmount": "R$ 294,97 (9%)",
+                  "Percentage": 9
+                }
+              },
+              "SavingBasis": {
+                "Amount": 3429.02,
+                "Currency": "BRL",
+                "DisplayAmount": "R$ 3.429,02",
+                "PriceType": "WAS_PRICE"
+              },
+              "ViolatesMAP": false
+            }
+          ],
+          "Summaries": [
+            {
+              "Condition": {
+                "Value": "New"
+              },
+              "HighestPrice": {
+                "Amount": 3134.05,
+                "Currency": "BRL",
+                "DisplayAmount": "R$ 3.134,05"
+              },
+              "LowestPrice": {
+                "Amount": 3134.05,
+                "Currency": "BRL",
+                "DisplayAmount": "R$ 3.134,05"
+              },
+              "OfferCount": 1
+            }
+          ]
+        }
+      }
+    ],
+    "SearchURL": "https://www.amazon.com.br/s?k=B0CB528ZCG&rh=p_n_availability%3A16254084011&tag=drsv00-20&linkCode=osi",
+    "TotalResultCount": 1
+  }
+}
