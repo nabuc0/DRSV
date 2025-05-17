@@ -164,6 +164,40 @@ async function main() {
             ],
         };
 
+        // Send a message to Telegram about the new post
+        if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
+            try {
+                const telegramBaseUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
+                // TODO: how to add the link to the blog title text?
+                const telegramMessagePtBr = `🆕 Novo post de blog criado: [${title}](https://drsv.com.br/posts/${slug})`;
+                
+                // Send the product image first
+                if (image && image !== COVER_IMAGE) {
+                    await axios.post(`${telegramBaseUrl}/sendPhoto`, {
+                        chat_id: process.env.TELEGRAM_CHAT_ID,
+                        photo: image,
+                        caption: `${telegramMessagePtBr}\n\nProduto: ${productName}`,
+                        parse_mode: 'HTML'
+                    });
+                    
+                    console.log('✓ Telegram photo and notification sent');
+                } else {
+                    // Fallback to text message if no image or just placeholder
+                    await axios.post(`${telegramBaseUrl}/sendMessage`, {
+                        chat_id: process.env.TELEGRAM_CHAT_ID,
+                        text: telegramMessagePtBr,
+                        parse_mode: 'HTML'
+                    });
+                    
+                    console.log('✓ Telegram text notification sent (no image)');
+                }
+            } catch (telegramError) {
+                console.error('Falha ao enviar notificação para o Telegram:', telegramError.message);
+            }
+        } else {
+            console.log('ℹ️ Notificação do Telegram ignorada (token ou chat ID ausente)');
+        }
+
         const outPath = path.join(OUT_DIR, `${slug}.json`);
         fs.writeFileSync(outPath, JSON.stringify(blogObj, null, 2), 'utf-8');
         console.log(`✓ Wrote ${slug}.json`);
