@@ -1,0 +1,33 @@
+{
+  "id": "48",
+  "title": "Olha só o que eu encontrei: Café Blend Chapada Diamantina Torrado e Moído Latitude 13 250g",
+  "slug": "olha-so-o-que-eu-enc-48",
+  "excerpt": "Olha só o que eu encontrei: Café Blend Chapada Diamantina Torrado e Moído Latitude 13 250g",
+  "category": "Alimentos e Bebidas",
+  "categorySlug": "alimentos-e-bebidas",
+  "coverImage": "https://m.media-amazon.com/images/I/31fCoEZSHFL._SL500_.jpg",
+  "publishedAt": "2025-05-18T22:27:02.340Z",
+  "productLink": "https://www.amazon.com.br/dp/B07VD9G9P4?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B07VD9G9P4",
+  "productBarcode": "0742832301350",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Gente, olha só o que eu encontrei:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Café Blend Chapada Diamantina Torrado e Moído Latitude 13 250g",
+        "description": "BLEND CHAPADA DIAMANTINA - Elaborado a partir de lotes exclusivos de cafés da Fazenda Progresso em Mucugê – BA., NA XÍCARA – Destacam-se aromas florais e frutados e um corpo sedoso e delicado, com notas cítricas e de chocolate, nuances de caramelo e um retrogosto intenso e prolongado., CAFÉ ESPECIAL 100% ARÁBICA – Composto apenas por grãos da variedade Catuaí Vermelho que atingiram o nível perfeito de maturação, identificados durante a colheita seletiva manual., TORRADO E MOÍDO – O perfil de torra média cuidadosamente escolhido para esses grãos visa preservar suas características naturais extremamente aromáticas., ORIGEM CONTROLADA E QUALIDADE GARANTIDA – Café cultivado, torrado e comercializado pelos próprios produtores.",
+        "price": 27.8,
+        "image": "https://m.media-amazon.com/images/I/31fCoEZSHFL._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B07VD9G9P4?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Tomara que esse tenha chamado sua atenção!</p>"
+    }
+  ]
+}

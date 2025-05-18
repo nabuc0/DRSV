@@ -1,0 +1,33 @@
+{
+  "id": "43",
+  "title": "O que está na moda: Pasta de Amendoim DR. Peanut Chocotine 600G - Com Whey Protein",
+  "slug": "o-que-esta-na-moda-p-43",
+  "excerpt": "O que está na moda: Pasta de Amendoim DR. Peanut Chocotine 600G - Com Whey Protein",
+  "category": "Alimentos e Bebidas",
+  "categorySlug": "alimentos-e-bebidas",
+  "coverImage": "https://m.media-amazon.com/images/I/41JG-00z+yL._SL500_.jpg",
+  "publishedAt": "2025-05-18T22:26:43.745Z",
+  "productLink": "https://www.amazon.com.br/dp/B0BYP6L6FM?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B0BYP6L6FM",
+  "productBarcode": "0619205390061",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Um produto que você vai querer ver:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Pasta de Amendoim DR. Peanut Chocotine 600G - Com Whey Protein",
+        "description": "Fonte de energia; 2,5g de proteína por porção; Sem adição de açúcar; Não contém glúten; Com Xilitol",
+        "price": 51.28,
+        "image": "https://m.media-amazon.com/images/I/41JG-00z+yL._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B0BYP6L6FM?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Obrigado por ler!</p>"
+    }
+  ]
+}
