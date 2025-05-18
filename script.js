@@ -170,14 +170,14 @@ async function main() {
                 const telegramBaseUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
                 // Creating a clickable link using HTML format since we're using HTML parse mode
                 const blogUrl = `https://drsv.com.br/posts/${slug}`;
-                const telegramMessagePtBr = `🆕 Postagem: <a href="${blogUrl}">${title}</a>`;
+                const telegramMessagePtBr = `🆕 Post 🤑`;
                 
                 // Send the product image first
                 if (image && image !== COVER_IMAGE) {
                     await axios.post(`${telegramBaseUrl}/sendPhoto`, {
                         chat_id: process.env.TELEGRAM_CHAT_ID,
                         photo: image,
-                        caption: `${telegramMessagePtBr}\n\nProduto: ${productName} por <b>R$${price}</b>!`,
+                        caption: `${telegramMessagePtBr}\nProduto: ${productName}\n<b>R$${price}</b>!\n\n${blogUrl}`,
                         parse_mode: 'HTML'
                     });
                     
