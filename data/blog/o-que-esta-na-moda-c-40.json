@@ -1,0 +1,33 @@
+{
+  "id": "40",
+  "title": "O que está na moda: Concha y Toro Diablo Deep Carmenere 750ml",
+  "slug": "o-que-esta-na-moda-c-40",
+  "excerpt": "O que está na moda: Concha y Toro Diablo Deep Carmenere 750ml",
+  "category": "Alimentos e Bebidas",
+  "categorySlug": "alimentos-e-bebidas",
+  "coverImage": "https://m.media-amazon.com/images/I/318BZgseZSL._SL500_.jpg",
+  "publishedAt": "2025-05-18T03:13:38.453Z",
+  "productLink": "https://www.amazon.com.br/dp/B0CXBQZRY7?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B0CXBQZRY7",
+  "productBarcode": "7804320758626",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Oi pessoal, mais um dia e mais um achado:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Concha y Toro Diablo Deep Carmenere 750ml",
+        "description": "não",
+        "price": 82.32,
+        "image": "https://m.media-amazon.com/images/I/318BZgseZSL._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B0CXBQZRY7?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Como sempre, espero que tenha gostado!</p>"
+    }
+  ]
+}
