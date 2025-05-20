@@ -5,13 +5,14 @@ import { Inter } from "next/font/google"
 import { cn } from "@/lib/utils"
 import SiteHeader from "@/components/site-header"
 import { Toaster } from "@/components/ui/toaster"
+import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "DRSV - Site de Afiliados da Amazon",
   description: "Descubra os melhores produtos na Amazon, cuidadosamente selecionados para você.",
-  generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -20,8 +21,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className={cn(inter.className, "min-h-screen bg-background antialiased")}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
           <main className="flex-1">{children}</main>
@@ -30,11 +32,14 @@ export default function RootLayout({
               <p className="text-sm text-muted-foreground">
                 &copy; {new Date().getFullYear()} DRSV. Todos os direitos reservados.
               </p>
-              <p className="text-xs text-muted-foreground">Como Afiliado da Amazon, recebo por compras qualificadas.</p>
+              <p className="text-xs text-muted-foreground">
+                Como Afiliado da Amazon, recebo por compras qualificadas.
+              </p>
             </div>
           </footer>
         </div>
         <Toaster />
+      </ThemeProvider>
       </body>
     </html>
   )

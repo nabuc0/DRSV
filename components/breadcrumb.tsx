@@ -1,6 +1,13 @@
 import Link from "next/link"
-import {ChevronRight, Home} from "lucide-react"
-import {BreadcrumbProps} from "@/components/client-pagination";
+import { ChevronRight, Home } from "lucide-react"
+
+interface BreadcrumbProps {
+  category?: {
+    name: string
+    slug: string
+  }
+  currentPage: string
+}
 
 export default function Breadcrumb({ category, currentPage }: BreadcrumbProps) {
   return (
