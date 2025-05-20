@@ -30,7 +30,9 @@ export default function FullWidthProductGallery({ products }: FullWidthProductGa
                 <h4 className="font-medium text-lg mb-2">{product.title}</h4>
                 <p className="text-sm text-muted-foreground mb-4">{product.description}</p>
                 <div className="mt-auto flex flex-col sm:flex-row sm:items-center gap-3">
-                  <div className="font-bold text-lg">R${product.price.toFixed(2)}</div>
+                    {product.price > 0 && (
+                        <div className="font-bold text-lg">R${product.price.toFixed(2)}</div>
+                    )}
                   <Button asChild className="sm:ml-auto">
                     <a
                       href={product.affiliateLink}

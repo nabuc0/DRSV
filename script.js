@@ -177,7 +177,7 @@ async function main() {
                     await axios.post(`${telegramBaseUrl}/sendPhoto`, {
                         chat_id: process.env.TELEGRAM_CHAT_ID,
                         photo: image,
-                        caption: `${telegramMessagePtBr}\nProduto: ${productName}\n<b>R$${price}</b>!\n\n${blogUrl}`,
+                        caption: `${telegramMessagePtBr}\nProduto: ${productName}\n${price > 0 ? `<b>R$${price}</b>` : ''}!\n\n${blogUrl}`,
                         parse_mode: 'HTML'
                     });
                     

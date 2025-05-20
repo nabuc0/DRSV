@@ -46,6 +46,20 @@ async function searchAmazonProducts(keyword) {
       'BrowseNodeInfo.BrowseNodes.SalesRank',
       'BrowseNodeInfo.WebsiteSalesRank',
       'ParentASIN',
+      'Offers.Listings.Availability.MaxOrderQuantity',
+      'Offers.Listings.Availability.Message',
+      'Offers.Listings.Availability.MinOrderQuantity',
+      'Offers.Listings.Availability.Type',
+      'Offers.Listings.Condition',
+      'Offers.Listings.Condition.ConditionNote',
+      'Offers.Listings.Condition.SubCondition',
+      'Offers.Listings.DeliveryInfo.IsAmazonFulfilled',
+      'Offers.Listings.DeliveryInfo.IsFreeShippingEligible',
+      'Offers.Listings.DeliveryInfo.IsPrimeEligible',
+      'Offers.Listings.IsBuyBoxWinner',
+      'Offers.Listings.LoyaltyPoints.Points',
+      'Offers.Listings.ProgramEligibility.IsPrimeExclusive',
+      'Offers.Listings.ProgramEligibility.IsPrimePantry'
     ]
   };
 
@@ -95,4 +109,4 @@ async function searchAmazonProducts(keyword) {
   }
 }
 
-searchAmazonProducts('B0CB528ZCG');
+searchAmazonProducts('B0DS2K6MM5');

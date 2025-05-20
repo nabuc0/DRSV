@@ -29,7 +29,9 @@ export default function ProductCard({ product }: ProductProps) {
           <h3 className="font-semibold text-lg mb-2">{product.title}</h3>
           <p className="text-muted-foreground mb-4">{product.description}</p>
           <div className="flex items-end gap-2 mb-4">
-            <span className="text-lg font-bold">R${product.price.toFixed(2)}</span>
+            {product.price > 0 && (
+                <span className="text-lg font-bold">R${product.price.toFixed(2)}</span>
+            )}
           </div>
           <CardFooter className="p-0">
             <Button asChild className="w-full md:w-auto">
