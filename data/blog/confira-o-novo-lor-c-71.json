@@ -1,0 +1,33 @@
+{
+  "id": "71",
+  "title": "Confira o novo L'OR Café L'Or Cápsula Ristretto - 1 Unidade Com 20 Cápsulas",
+  "slug": "confira-o-novo-lor-c-71",
+  "excerpt": "Confira o novo L'OR Café L'Or Cápsula Ristretto - 1 Unidade Com 20 Cápsulas",
+  "category": "Alimentos e Bebidas",
+  "categorySlug": "alimentos-e-bebidas",
+  "coverImage": "https://m.media-amazon.com/images/I/41KcRVFzV8L._SL500_.jpg",
+  "publishedAt": "2025-05-20T03:08:32.150Z",
+  "productLink": "https://www.amazon.com.br/dp/B07QHD9VJQ?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B07QHD9VJQ",
+  "productBarcode": "8711000360835",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Olha o que acabou de chegar — dá uma olhada:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "L'OR Café L'Or Cápsula Ristretto - 1 Unidade Com 20 Cápsulas",
+        "description": "Intensidade 11, Contém 10 cápsulas, Tipo ristretto, COMPATÍVEL COM MÁQUINAS DE CAFÉ NESPRESSO",
+        "price": 36.26,
+        "image": "https://m.media-amazon.com/images/I/41KcRVFzV8L._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B07QHD9VJQ?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Obrigado por ler!</p>"
+    }
+  ]
+}

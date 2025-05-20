@@ -1,0 +1,33 @@
+{
+  "id": "70",
+  "title": "Acabei de encontrar: Véspera",
+  "slug": "acabei-de-encontrar-70",
+  "excerpt": "Acabei de encontrar: Véspera",
+  "category": "Livros",
+  "categorySlug": "livros",
+  "coverImage": "https://m.media-amazon.com/images/I/51ZUui7v9nL._SL500_.jpg",
+  "publishedAt": "2025-05-20T03:08:28.500Z",
+  "productLink": "https://www.amazon.com.br/dp/6555872985?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "6555872985",
+  "productBarcode": "9786555872989",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Novidade fresquinha para você:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Véspera",
+        "description": "",
+        "price": 49.91,
+        "image": "https://m.media-amazon.com/images/I/51ZUui7v9nL._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/6555872985?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Obrigado por ler!</p>"
+    }
+  ]
+}
