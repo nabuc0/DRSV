@@ -1,0 +1,33 @@
+{
+  "id": "86",
+  "title": "Você pode gostar de: Café Pilão Cápsula Extraforte - 20 unidades - 104 gramas",
+  "slug": "voce-pode-gostar-de-86",
+  "excerpt": "Você pode gostar de: Café Pilão Cápsula Extraforte - 20 unidades - 104 gramas",
+  "category": "Cozinha",
+  "categorySlug": "cozinha",
+  "coverImage": "https://m.media-amazon.com/images/I/51jXXmyLnxL._SL500_.jpg",
+  "publishedAt": "2025-05-22T00:15:04.748Z",
+  "productLink": "https://www.amazon.com.br/dp/B07Y51QCBT?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B07Y51QCBT",
+  "productBarcode": "7896089088434",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Um produto que você vai querer ver:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "Café Pilão Cápsula Extraforte - 20 unidades - 104 gramas",
+        "description": "Intensidade 12, Contém 20 cápsulas, Tipo espresso, COMPATÍVEL COM MÁQUINAS DE CAFÉ NESPRESSO*, *Marca de um terceiro, não relacionado à Jacobs Douwe Egberts BR Comercialização de Cafés Ltda., Todos os blends da l'or são feitos de café cultivado de acordo com métodos de produção sustentáveis ​​e são 100% certificados pela utz",
+        "price": 31.37,
+        "image": "https://m.media-amazon.com/images/I/51jXXmyLnxL._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B07Y51QCBT?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Por hoje é só!</p>"
+    }
+  ]
+}

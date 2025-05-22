@@ -1,0 +1,33 @@
+{
+  "id": "79",
+  "title": "Um produto que você vai querer: L'Oréal Professionnel Shampoo Pro Longer, Reduz a Quebra e a Aparência de Pontas Duplas, Adiciona Volume e Brilho, Para cabelos finos e com afinamento, 300ml",
+  "slug": "um-produto-que-voce-79",
+  "excerpt": "Um produto que você vai querer: L'Oréal Professionnel Shampoo Pro Longer, Reduz a Quebra e a Aparência de Pontas Duplas, Adiciona Volume e Brilho, Para cabelos finos e com afinamento, 300ml",
+  "category": "Beleza",
+  "categorySlug": "beleza",
+  "coverImage": "https://m.media-amazon.com/images/I/31bqNan6SGL._SL500_.jpg",
+  "publishedAt": "2025-05-22T00:14:39.859Z",
+  "productLink": "https://www.amazon.com.br/dp/B09GSPW5BH?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B09GSPW5BH",
+  "productBarcode": "7899706189484",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Um produto que você vai querer ver:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "L'Oréal Professionnel Shampoo Pro Longer, Reduz a Quebra e a Aparência de Pontas Duplas, Adiciona Volume e Brilho, Para cabelos finos e com afinamento, 300ml",
+        "description": "Pontas preenchidas e Cabelos mais brilhosos, Para um cabelo mais longo, denso e com brilho, 94% menos quebra 66% menos pontas duplas 5x mais brilho Teste Instrumental com uso do Shampoo Pro Longer + Condicionador Pro Longer, Marca:L'Oreal Professionnel Paris",
+        "price": 99.9,
+        "image": "https://m.media-amazon.com/images/I/31bqNan6SGL._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B09GSPW5BH?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Curtiu o achado? Tem mais vindo!</p>"
+    }
+  ]
+}

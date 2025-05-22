@@ -1,0 +1,33 @@
+{
+  "id": "101",
+  "title": "Lançamento: JBL, Fone de Ouvido Com Fio JBLQTUM100M2BLK",
+  "slug": "lancamento-jbl-fone-101",
+  "excerpt": "Lançamento: JBL, Fone de Ouvido Com Fio JBLQTUM100M2BLK",
+  "category": "Instrumentos Musicais",
+  "categorySlug": "instrumentos-musicai",
+  "coverImage": "https://m.media-amazon.com/images/I/31UwcHLXXvL._SL500_.jpg",
+  "publishedAt": "2025-05-22T00:15:59.114Z",
+  "productLink": "https://www.amazon.com.br/dp/B0D6NLHV8N?tag=drsv00-20&linkCode=osi&th=1&psc=1",
+  "productAsin": "B0D6NLHV8N",
+  "productBarcode": "4968929222728",
+  "content": [
+    {
+      "type": "text",
+      "content": "<p>Sextou em algum lugar do mundo e eu trouxe uma dica:</p>"
+    },
+    {
+      "type": "product",
+      "product": {
+        "title": "JBL, Fone de Ouvido Com Fio JBLQTUM100M2BLK",
+        "description": "VOCÊ NO CENTRO DO JOGO. De pequenos passos até a explosão mais alta, nosso áudio exclusivo proporciona o ambiente sonoro mais realista para uma vantagem competitiva em qualquer batalha.",
+        "price": 169,
+        "image": "https://m.media-amazon.com/images/I/31UwcHLXXvL._SL500_.jpg",
+        "affiliateLink": "https://www.amazon.com.br/dp/B0D6NLHV8N?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+      }
+    },
+    {
+      "type": "text",
+      "content": "<p>Como que eu consegui achar isso? Espero que tenha gostado!</p>"
+    }
+  ]
+}
