@@ -1,40 +1,35 @@
-import Breadcrumb from "@/components/breadcrumb"
-import fs from "fs/promises"
-import path from "path"
-import ClientPagination from "@/components/client-pagination"
+import Breadcrumb from "@/components/breadcrumb";
+import fs from "fs/promises";
+import ClientPagination from "@/components/client-pagination";
+import {collectPostFiles, POSTS_DIR} from "@/lib/server-utils";
 
 export async function generateStaticParams() {
-    const postsDir = path.join(process.cwd(), 'data', 'blog')
-    const filenames = await fs.readdir(postsDir)
-    const posts = await Promise.all(
-        filenames
-            .filter((name: string) => name.endsWith(".json"))
-            .map(async (name: string) => {
-                const filePath = path.join(postsDir, name)
-                const raw = await fs.readFile(filePath, "utf-8")
-                return JSON.parse(raw)
-            }),
-    )
+    const files = await collectPostFiles(POSTS_DIR);
 
-    return posts.map((post: any) => ({ slug: post.slug }))
+    const posts = await Promise.all(
+        files.map(async (filePath) => {
+            const raw = await fs.readFile(filePath, "utf-8");
+            return JSON.parse(raw) as { slug: string };
+        })
+    );
+
+    return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function PostsPage() {
-    const postsDir = path.join(process.cwd(), 'data', 'blog')
-    const filenames = await fs.readdir(postsDir)
+    const files = await collectPostFiles(POSTS_DIR);
 
     const posts = await Promise.all(
-        filenames
-            .filter((name) => name.endsWith(".json"))
-            .map(async (name) => {
-                const filePath = path.join(postsDir, name)
-                const raw = await fs.readFile(filePath, "utf-8")
-                return JSON.parse(raw)
-            }),
-    )
+        files.map(async (filePath) => {
+            const raw = await fs.readFile(filePath, "utf-8");
+            return JSON.parse(raw) as { publishedAt: string; slug: string /* …other props*/ };
+        })
+    );
 
     // sort by publishedAt descending
-    posts.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    posts.sort(
+        (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    );
 
     return (
         <div className="container mx-auto px-4 py-6">
@@ -46,5 +41,5 @@ export default async function PostsPage() {
 
             <ClientPagination posts={posts} postsPerPage={12} />
         </div>
-    )
+    );
 }
