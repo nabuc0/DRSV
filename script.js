@@ -21,25 +21,24 @@ function getDeepestContextFreeName(node) {
     return current?.ContextFreeName || null;
 }
 
-// Look for a file ending with `-<id>.json` in root or any first-level subdir
-function findBlogFileById(id) {
-    // root
-    const rootMatch = fs
-        .readdirSync(OUT_DIR)
-        .find(f => f.endsWith(`-${id}.json`));
-    if (rootMatch) return { dir: OUT_DIR, file: rootMatch };
+// Recursively find a file ending with `-<id>.json` under OUT_DIR
+function findBlogFileById(id, dir = OUT_DIR) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+        const fullPath = path.join(dir, entry.name);
 
-    // subfolders
-    const subdirs = fs
-        .readdirSync(OUT_DIR)
-        .filter(name => fs.statSync(path.join(OUT_DIR, name)).isDirectory());
-    for (const sub of subdirs) {
-        const files = fs.readdirSync(path.join(OUT_DIR, sub));
-        const match = files.find(f => f.endsWith(`-${id}.json`));
-        if (match) {
-            return { dir: path.join(OUT_DIR, sub), file: match };
+        // Match file
+        if (entry.isFile() && entry.name.endsWith(`-${id}.json`)) {
+            return { dir, file: entry.name };
+        }
+
+        // Recurse into directories
+        if (entry.isDirectory()) {
+            const found = findBlogFileById(id, fullPath);
+            if (found) return found;
         }
     }
+
     return null;
 }
 
@@ -129,7 +128,7 @@ async function main() {
 
         // 6) title & slug
         const title = forcedTitle || generateTitle(productName);
-        const baseSlug = slugify(title, { lower: true, strict: true });
+        const baseSlug = slugify(forcedTitle || productName, { lower: true, strict: true });
         const slug = `${baseSlug.slice(0, 20)}-${id}`.replace(/--+/g, '-');
 
         // 7) parse date into YYYYMMDD
@@ -140,7 +139,10 @@ async function main() {
         } else {
             publishedAt = new Date().toISOString();
         }
-        const dateFolder = publishedAt.slice(0, 10).replace(/-/g, '');
+
+        // === UPDATED: derive year / month / day ===
+        const isoDate = publishedAt.slice(0, 10);        // "YYYY-MM-DD"
+        const [year, month, day] = isoDate.split('-');   // [ "YYYY", "MM", "DD" ]
 
         // 8) assemble blog object
         const blogObj = {
@@ -163,8 +165,8 @@ async function main() {
             ],
         };
 
-        // write JSON
-        const targetDir = path.join(OUT_DIR, dateFolder);
+        // === UPDATED: write into nested year/month/day folder ===
+        const targetDir = path.join(OUT_DIR, year, month, day);
         fs.mkdirSync(targetDir, { recursive: true });
         const outPath = path.join(targetDir, `${slug}.json`);
         fs.writeFileSync(outPath, JSON.stringify(blogObj), 'utf-8');
@@ -175,7 +177,7 @@ async function main() {
     }
 
     // Save all new slugs
-    fs.writeFileSync(NEW_POSTS_FILE, JSON.stringify(newPosts));
+    fs.writeFileSync(NEW_POSTS_FILE, JSON.stringify(newPosts), 'utf-8');
     console.log(`✓ Saved ${newPosts.length} new post slug(s) to data/new-posts.json`);
 }
 

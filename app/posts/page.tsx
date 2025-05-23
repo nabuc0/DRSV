@@ -1,10 +1,10 @@
 import Breadcrumb from "@/components/breadcrumb";
 import fs from "fs/promises";
 import ClientPagination from "@/components/client-pagination";
-import {collectPostFiles, POSTS_DIR} from "@/lib/server-utils";
+import { collectPostFiles } from "@/lib/server-utils";
 
 export async function generateStaticParams() {
-    const files = await collectPostFiles(POSTS_DIR);
+    const files = await collectPostFiles();
 
     const posts = await Promise.all(
         files.map(async (filePath) => {
@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 }
 
 export default async function PostsPage() {
-    const files = await collectPostFiles(POSTS_DIR);
+    const files = await collectPostFiles();
 
     const posts = await Promise.all(
         files.map(async (filePath) => {

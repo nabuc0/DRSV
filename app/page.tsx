@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { ArrowRight, Clock } from "lucide-react";
 import { formatDate } from "@/lib/utils";
-import { collectPostFiles, POSTS_DIR } from "@/lib/server-utils";
+import { collectPostFiles } from "@/lib/server-utils";
 import fs from "fs/promises";
 import categories from "../data/categories.json";
 
 export default async function Home() {
-  // Gather every JSON file under data/blog (including subfolders)
-  const filePaths = await collectPostFiles(POSTS_DIR);
+  const filePaths = await collectPostFiles();
 
   const posts = await Promise.all(
       filePaths.map(async (filePath) => {

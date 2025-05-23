@@ -3,7 +3,7 @@ import Breadcrumb from "@/components/breadcrumb";
 import ClientPagination from "@/components/client-pagination";
 import fs from "fs/promises";
 import categories from "../../../data/categories.json";
-import {collectPostFiles, POSTS_DIR} from "@/lib/server-utils";
+import { collectPostFiles } from "@/lib/server-utils";
 
 export async function generateStaticParams() {
     return categories.map((category) => ({
@@ -16,7 +16,7 @@ interface PageProps {
 }
 
 export default async function CategoryPage({ params }: PageProps) {
-    const filePaths = await collectPostFiles(POSTS_DIR);
+    const filePaths = await collectPostFiles();
 
     // Load and parse every post
     const posts = await Promise.all(

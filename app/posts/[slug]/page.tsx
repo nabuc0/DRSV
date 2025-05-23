@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Clock, Tag } from "lucide-react";
-import {collectPostFiles, POSTS_DIR} from "@/lib/server-utils";
+import { collectPostFiles } from "@/lib/server-utils";
 import { formatDate } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import FullWidthProductGallery from "@/components/full-width-product-gallery";
@@ -11,7 +11,7 @@ import Link from "next/link";
 import React from "react";
 
 export async function generateStaticParams() {
-    const filePaths = await collectPostFiles(POSTS_DIR);
+    const filePaths = await collectPostFiles();
     const posts = await Promise.all(
         filePaths.map(async (filePath) => {
             const raw = await fs.readFile(filePath, "utf-8");
@@ -29,8 +29,7 @@ interface PageProps {
 export default async function PostPage({ params }: PageProps) {
     const slug = params.slug;
 
-    // Load all posts
-    const filePaths = await collectPostFiles(POSTS_DIR);
+    const filePaths = await collectPostFiles();
     const posts = await Promise.all(
         filePaths.map(async (filePath) => {
             const raw = await fs.readFile(filePath, "utf-8");
