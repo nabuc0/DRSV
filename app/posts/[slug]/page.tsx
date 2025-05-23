@@ -18,6 +18,7 @@ export async function generateStaticParams() {
             return JSON.parse(raw) as { slug: string };
         })
     );
+
     return posts.map((post) => ({ slug: post.slug }));
 }
 
@@ -34,6 +35,7 @@ export default async function PostPage({ params }: PageProps) {
         filePaths.map(async (filePath) => {
             const raw = await fs.readFile(filePath, "utf-8");
             return JSON.parse(raw) as {
+                id: string;
                 slug: string;
                 category: string;
                 categorySlug: string;
