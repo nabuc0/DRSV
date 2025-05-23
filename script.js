@@ -9,6 +9,7 @@ const { searchAmazonProducts } = require('./amazon');
 const CSV_URL =
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vTilSLlYMS5aELEBqSRi1JSnt0TXnw6Wo1nokBjJSs75179h8dGrZxIrwqooeabwVaz1qfcGsPr2lYv/pub?gid=0&single=true&output=csv';
 const OUT_DIR = path.join(__dirname, 'data', 'blog');
+const NEW_POSTS_FILE = path.join(__dirname, 'data', 'new-posts.json');
 const COVER_IMAGE = `${process.env.NEXT_PUBLIC_BASE_PATH}/placeholder.svg?height=400&width=800`;
 
 function getDeepestContextFreeName(node) {
@@ -20,8 +21,31 @@ function getDeepestContextFreeName(node) {
     return current?.ContextFreeName || null;
 }
 
+// Look for a file ending with `-<id>.json` in root or any first-level subdir
+function findBlogFileById(id) {
+    // root
+    const rootMatch = fs
+        .readdirSync(OUT_DIR)
+        .find(f => f.endsWith(`-${id}.json`));
+    if (rootMatch) return { dir: OUT_DIR, file: rootMatch };
+
+    // subfolders
+    const subdirs = fs
+        .readdirSync(OUT_DIR)
+        .filter(name => fs.statSync(path.join(OUT_DIR, name)).isDirectory());
+    for (const sub of subdirs) {
+        const files = fs.readdirSync(path.join(OUT_DIR, sub));
+        const match = files.find(f => f.endsWith(`-${id}.json`));
+        if (match) {
+            return { dir: path.join(OUT_DIR, sub), file: match };
+        }
+    }
+    return null;
+}
+
 async function main() {
     fs.mkdirSync(OUT_DIR, { recursive: true });
+    const newPosts = [];
 
     // 1) download CSV
     const res = await axios.get(CSV_URL);
@@ -37,37 +61,29 @@ async function main() {
             continue;
         }
 
-        // Handle deletion if marked
+        const id = String(idx + 1);
+
+        // handle deletion
         if (delFlag.trim().toLowerCase() === 'yes') {
             // Find and delete any existing file with this ID
-            const files = fs.readdirSync(OUT_DIR);
-            const fileToDelete = files.find(f => f.endsWith(`-${idx + 1}.json`));
-            
-            if (fileToDelete) {
-                const filePath = path.join(OUT_DIR, fileToDelete);
-                fs.unlinkSync(filePath);
-                console.log(`✓ Deleted ${fileToDelete} (marked for deletion in CSV)`);
+            const found = findBlogFileById(id);
+            if (found) {
+                fs.unlinkSync(path.join(found.dir, found.file));
+                console.log(`✓ Deleted ${found.file} (ID ${id})`);
             } else {
-                console.log(`→ No file found for ID ${idx + 1} to delete`);
+                console.log(`→ No file for ID ${id} to delete`);
             }
-
             continue;
         }
 
-        // 3) build row ID
-        const id = String(idx + 1);
-
-        // NEW: if any file in OUT_DIR ends with `-<id>.json`, skip
-        const already = fs
-            .readdirSync(OUT_DIR)
-            .some(f => f.endsWith(`-${id}.json`));
-        if (already) {
+        // skip if already exists
+        if (findBlogFileById(id)) {
             console.log(`→ Skipping row ${id} (already generated)`);
             continue;
         }
 
-        // 4) fetch Amazon data (with 1 s throttle)
-        let items;
+        // 3) fetch Amazon data (throttled)
+        let items = [];
         try {
             await new Promise(r => setTimeout(r, 1500));
             const result = await searchAmazonProducts(query.trim());
@@ -75,7 +91,6 @@ async function main() {
             items = result?.SearchResult?.Items || [];
         } catch (err) {
             console.error(`Error searching Amazon for "${query}":`, err);
-            continue;
         }
 
         if (!items.length) {
@@ -83,16 +98,16 @@ async function main() {
             continue;
         }
 
-        // 5) extract product info
+        // 4) extract product info
         const first = items[0];
         const productName = first.ItemInfo?.Title?.DisplayValue || query.trim();
         const productLink = first.DetailPageURL || '';
         const productAsin = first.ASIN || '';
         const eans = first.ItemInfo?.ExternalIds?.EANs?.DisplayValues || [];
-        const productBarcode = eans.length ? eans[0] : '';
+        const productBarcode = eans[0] || '';
         const browseNodes = first.BrowseNodeInfo?.BrowseNodes || [];
         const features = first.ItemInfo?.Features?.DisplayValues || [];
-        const description = features.length ? features.join(', ') : '';
+        const description = features.join(', ');
         const listing = first.Offers?.Listings?.[0];
         const price = listing?.Price?.Amount || 0;
         const image =
@@ -100,109 +115,67 @@ async function main() {
             first.Images?.Primary?.Medium?.URL ||
             COVER_IMAGE;
 
-        // Handle category as object with name and slug
-        const categoryName = getDeepestContextFreeName(browseNodes[0] || {});
+        // 5) ensure category is in data/categories.json
+        const categoryName = getDeepestContextFreeName(browseNodes[0] || {}) || 'Uncategorized';
         const categorySlug = slugify(categoryName, { lower: true, strict: true }).slice(0, 20);
         const categoriesFile = path.join(__dirname, 'data', 'categories.json');
         const categoriesData = fs.readFileSync(categoriesFile, 'utf-8');
-        
-        // Handle potential migration from old format (array of strings) to new format (array of objects)
         let categories = JSON.parse(categoriesData);
-
-        // Check if category already exists
-        const categoryExists = categories.some(cat => cat.name === categoryName);
-        
-        if (!categoryExists) {
-            categories.push({
-                name: categoryName,
-                slug: categorySlug,
-                image: image || COVER_IMAGE,
-            });
-
-            fs.writeFileSync(categoriesFile, JSON.stringify(categories, null, 2), 'utf-8');
-            console.log(`✓ Added new category: ${categoryName} (slug: ${categorySlug})`);
-        } else {
-            console.log(`→ Category "${categoryName}" already exists.`);
+        if (!categories.some(cat => cat.name === categoryName)) {
+            categories.push({ name: categoryName, slug: categorySlug, image: image || COVER_IMAGE });
+            fs.writeFileSync(categoriesFile, JSON.stringify(categories), 'utf-8');
+            console.log(`✓ Added new category: ${categoryName}`);
         }
 
-        // 6) generate title & slug
+        // 6) title & slug
         const title = forcedTitle || generateTitle(productName);
         const baseSlug = slugify(title, { lower: true, strict: true });
-        const slug = `${baseSlug.slice(0, 20)}-${id}`.replaceAll('--', '-');
+        const slug = `${baseSlug.slice(0, 20)}-${id}`.replace(/--+/g, '-');
 
-        // 7) format date
+        // 7) parse date into YYYYMMDD
         let publishedAt;
         if (dateStr?.trim()) {
             const [day, month, year] = dateStr.trim().split('/');
-            publishedAt = new Date(
-                Date.UTC(+year, +month - 1, +day)
-            ).toISOString();
+            publishedAt = new Date(Date.UTC(+year, +month - 1, +day)).toISOString();
         } else {
             publishedAt = new Date().toISOString();
         }
+        const dateFolder = publishedAt.slice(0, 10).replace(/-/g, '');
 
-        // 8) assemble & write
+        // 8) assemble blog object
         const blogObj = {
             id,
             title,
             slug,
             excerpt: title,
             category: categoryName,
-            categorySlug: categorySlug,
-            coverImage: image || COVER_IMAGE,
+            categorySlug,
+            coverImage: image,
             publishedAt,
             productLink,
             productAsin,
             productBarcode,
             content: [
                 { type: 'text', content: `<p>${generateIntro()}</p>` },
-                {
-                    type: 'product',
-                    product: { title: productName, description, price, image, affiliateLink: productLink },
-                },
+                { type: 'product', product: { title: productName, description, price, image, affiliateLink: productLink } },
                 { type: 'text', content: `<p>${generateOutro()}</p>` },
             ],
         };
 
-        // Send a message to Telegram about the new post
-        if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
-            try {
-                const telegramBaseUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
-                // Creating a clickable link using HTML format since we're using HTML parse mode
-                const blogUrl = `https://drsv.com.br/posts/${slug}`;
-                const telegramMessagePtBr = `🆕 Post 🤑`;
-                
-                // Send the product image first
-                if (image && image !== COVER_IMAGE) {
-                    await axios.post(`${telegramBaseUrl}/sendPhoto`, {
-                        chat_id: process.env.TELEGRAM_CHAT_ID,
-                        photo: image,
-                        caption: `${telegramMessagePtBr}\nProduto: ${productName}\n${price > 0 ? `<b>R$${price}</b>!` : ''}\n\n${blogUrl}`,
-                        parse_mode: 'HTML'
-                    });
-                    
-                    console.log('✓ Telegram photo and notification sent');
-                } else {
-                    // Fallback to text message if no image or just placeholder
-                    await axios.post(`${telegramBaseUrl}/sendMessage`, {
-                        chat_id: process.env.TELEGRAM_CHAT_ID,
-                        text: telegramMessagePtBr,
-                        parse_mode: 'HTML'
-                    });
-                    
-                    console.log('✓ Telegram text notification sent (no image)');
-                }
-            } catch (telegramError) {
-                console.error('Falha ao enviar notificação para o Telegram:', telegramError.message);
-            }
-        } else {
-            console.log('ℹ️ Notificação do Telegram ignorada (token ou chat ID ausente)');
-        }
+        // write JSON
+        const targetDir = path.join(OUT_DIR, dateFolder);
+        fs.mkdirSync(targetDir, { recursive: true });
+        const outPath = path.join(targetDir, `${slug}.json`);
+        fs.writeFileSync(outPath, JSON.stringify(blogObj), 'utf-8');
+        console.log(`✓ Wrote ${path.relative(__dirname, outPath)}`);
 
-        const outPath = path.join(OUT_DIR, `${slug}.json`);
-        fs.writeFileSync(outPath, JSON.stringify(blogObj, null, 2), 'utf-8');
-        console.log(`✓ Wrote ${slug}.json`);
+        // record slug for later notification
+        newPosts.push(slug);
     }
+
+    // Save all new slugs
+    fs.writeFileSync(NEW_POSTS_FILE, JSON.stringify(newPosts));
+    console.log(`✓ Saved ${newPosts.length} new post slug(s) to data/new-posts.json`);
 }
 
 main().catch(err => {
