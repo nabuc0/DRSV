@@ -7,7 +7,7 @@ const { generateTitle, generateIntro, generateOutro } = require('./titleTemplate
 const { searchAmazonProducts } = require('./amazon');
 
 const CSV_URL =
-    'https://docs.google.com/spreadsheets/d/e/2PACX-1vTilSLlYMS5aELEBqSRi1JSnt0TXnw6Wo1nokBjJSs75179h8dGrZxIrwqooeabwVaz1qfcGsPr2lYv/pub?gid=0&single=true&output=csv';
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vTilSLlYMS5aELEBqSRi1JSnt0TXnw6Wo1nokBjJSs75179h8dGrZxIrwqooeabwVaz1qfcGsPr2lYv/pub?output=csv';
 const OUT_DIR = path.join(__dirname, 'data', 'blog');
 const NEW_POSTS_FILE = path.join(__dirname, 'data', 'new-posts.json');
 const COVER_IMAGE = `${process.env.NEXT_PUBLIC_BASE_PATH}/placeholder.svg?height=400&width=800`;
