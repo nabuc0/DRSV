@@ -9,6 +9,7 @@ const { searchAmazonProducts } = require('./amazon');
 const CSV_URL =
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vTilSLlYMS5aELEBqSRi1JSnt0TXnw6Wo1nokBjJSs75179h8dGrZxIrwqooeabwVaz1qfcGsPr2lYv/pub?gid=0&single=true&output=csv';
 const OUT_DIR = path.join(__dirname, 'data', 'blog');
+const NEW_POSTS_FILE = path.join(__dirname, 'data', 'new-posts.json');
 const COVER_IMAGE = `${process.env.NEXT_PUBLIC_BASE_PATH}/placeholder.svg?height=400&width=800`;
 
 function getDeepestContextFreeName(node) {
@@ -44,6 +45,7 @@ function findBlogFileById(id) {
 
 async function main() {
     fs.mkdirSync(OUT_DIR, { recursive: true });
+    const newPosts = [];
 
     // 1) download CSV
     const res = await axios.get(CSV_URL);
@@ -121,7 +123,7 @@ async function main() {
         let categories = JSON.parse(categoriesData);
         if (!categories.some(cat => cat.name === categoryName)) {
             categories.push({ name: categoryName, slug: categorySlug, image: image || COVER_IMAGE });
-            fs.writeFileSync(categoriesFile, JSON.stringify(categories, null, 2), 'utf-8');
+            fs.writeFileSync(categoriesFile, JSON.stringify(categories), 'utf-8');
             console.log(`✓ Added new category: ${categoryName}`);
         }
 
@@ -160,40 +162,20 @@ async function main() {
             ],
         };
 
-        // 9) notify Telegram (unchanged)
-        if (process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID) {
-            try {
-                const botUrl = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
-                const blogUrl = `https://drsv.com.br/posts/${slug}`;
-                const msg = `🆕 Post 🤑`;
-
-                if (image && image !== COVER_IMAGE) {
-                    await axios.post(`${botUrl}/sendPhoto`, {
-                        chat_id: process.env.TELEGRAM_CHAT_ID,
-                        photo: image,
-                        caption: `${msg}\n${productName}\n${price > 0 ? `<b>R$${price}</b>\n` : ''}\n${blogUrl}`,
-                        parse_mode: 'HTML',
-                    });
-                } else {
-                    await axios.post(`${botUrl}/sendMessage`, {
-                        chat_id: process.env.TELEGRAM_CHAT_ID,
-                        text: msg,
-                        parse_mode: 'HTML',
-                    });
-                }
-                console.log('✓ Telegram notification sent');
-            } catch (telegramError) {
-                console.error('Telegram error:', telegramError.message);
-            }
-        }
-
-        // 10) write file into date-folder
+        // write JSON
         const targetDir = path.join(OUT_DIR, dateFolder);
         fs.mkdirSync(targetDir, { recursive: true });
         const outPath = path.join(targetDir, `${slug}.json`);
-        fs.writeFileSync(outPath, JSON.stringify(blogObj, null, 2), 'utf-8');
+        fs.writeFileSync(outPath, JSON.stringify(blogObj), 'utf-8');
         console.log(`✓ Wrote ${path.relative(__dirname, outPath)}`);
+
+        // record slug for later notification
+        newPosts.push(slug);
     }
+
+    // Save all new slugs
+    fs.writeFileSync(NEW_POSTS_FILE, JSON.stringify(newPosts));
+    console.log(`✓ Saved ${newPosts.length} new post slug(s) to data/new-posts.json`);
 }
 
 main().catch(err => {

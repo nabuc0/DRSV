@@ -43,7 +43,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update blog data [auto-commit]"
-          file_pattern: "data/blog"
+          file_pattern: "data"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -52,3 +52,12 @@ jobs:
           publish_dir: ./build
           publish_branch: gh-pages
           force_orphan: true
+
+      - name: Notify via Telegram
+        run: |
+          node notify-telegram.js
+        env:
+          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
