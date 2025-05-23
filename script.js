@@ -145,6 +145,7 @@ async function main() {
         // 8) assemble blog object
         const blogObj = {
             id,
+            row: id,
             title,
             slug,
             excerpt: title,
