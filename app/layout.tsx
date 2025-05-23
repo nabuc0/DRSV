@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   title: "DRSV - Site de Afiliados da Amazon",
   description: "Descubra os melhores produtos na Amazon, cuidadosamente selecionados para você.",
   generator: "v0.dev",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+  },
 }
 
 export default function RootLayout({
