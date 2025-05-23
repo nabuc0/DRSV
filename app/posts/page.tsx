@@ -4,7 +4,7 @@ import path from "path"
 import ClientPagination from "@/components/client-pagination"
 
 export async function generateStaticParams() {
-    const postsDir = path.join(process.cwd(), "data", "blog")
+    const postsDir = path.join(process.cwd(), 'data', 'blog')
     const filenames = await fs.readdir(postsDir)
     const posts = await Promise.all(
         filenames
@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 }
 
 export default async function PostsPage() {
-    const postsDir = path.join(process.cwd(), "data", "blog")
+    const postsDir = path.join(process.cwd(), 'data', 'blog')
     const filenames = await fs.readdir(postsDir)
 
     const posts = await Promise.all(

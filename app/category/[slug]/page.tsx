@@ -17,7 +17,7 @@ interface PageProps {
 }
 
 export default async function CategoryPage({ params }: PageProps) {
-    const postsDir = path.join(process.cwd(), "data", "blog")
+    const postsDir = path.join(process.cwd(), 'data', 'blog')
     const filenames = await fs.readdir(postsDir)
     const posts = await Promise.all(
         filenames
