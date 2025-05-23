@@ -53,9 +53,30 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
 
+  notify:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        # we only need the code to have notify-telegram.js, not the new posts
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Download new-posts.json
+        uses: actions/download-artifact@v3
+        with:
+          name: new-posts
+          path: data
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Notify via Telegram
-        run: |
-          node notify-telegram.js
+        run: node notify-telegram.js
         env:
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
