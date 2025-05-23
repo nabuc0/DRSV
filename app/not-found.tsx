@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Home, Search, Coffee, ArrowLeft } from "lucide-react"
+import { Home, Search, Coffee, ArrowLeft, ShoppingCart } from "lucide-react"
 
 export default function NotFound() {
   return (
@@ -51,11 +51,15 @@ export default function NotFound() {
                     <span className="w-2 h-2 bg-primary rounded-full"></span>
                     Tomar um café enquanto pensa no que fazer 😄
                   </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-primary rounded-full"></span>
+                    Aproveitar para fazer compras na Amazon
+                  </li>
                 </ul>
               </div>
 
               {/* Action buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
                 <Button asChild size="lg" className="gap-2">
                   <Link href="/">
                     <Home className="w-4 h-4" />
@@ -69,6 +73,22 @@ export default function NotFound() {
                     Ver Todos os Posts
                   </Link>
                 </Button>
+
+                <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="gap-2 bg-[#FF9900] hover:bg-[#FF9900]/90 text-white border-[#FF9900] hover:border-[#FF9900]/90 hover:text-white"
+                >
+                  <a
+                      href="https://www.amazon.com.br/?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                  >
+                    <ShoppingCart className="w-4 h-4" />
+                    Comprar na Amazon
+                  </a>
+                </Button>
               </div>
 
               {/* Fun footer message */}
@@ -76,6 +96,18 @@ export default function NotFound() {
                 <p className="text-sm text-muted-foreground">
                   <Coffee className="w-4 h-4 inline mr-1" />
                   Enquanto isso, que tal dar uma olhada nos nossos posts mais recentes?
+                </p>
+
+                <p className="text-xs text-muted-foreground/70 mt-3">
+                  Ou aproveite para conferir as ofertas na{" "}
+                  <a
+                      href="https://www.amazon.com.br/?tag=drsv00-20&linkCode=osi&th=1&psc=1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-primary transition-colors"
+                  >
+                    Amazon Brasil
+                  </a>
                 </p>
               </div>
             </CardContent>
