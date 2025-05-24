@@ -109,4 +109,4 @@ async function searchAmazonProducts(keyword) {
   }
 }
 
-searchAmazonProducts('B0DS2K6MM5');
+searchAmazonProducts('B07FPW95CM');
