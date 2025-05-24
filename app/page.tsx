@@ -33,10 +33,10 @@ export default async function Home() {
         <section className="mb-12">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold tracking-tight mb-4">
-              Ofertas Diárias da Amazon
+              As Melhores Ofertas! Sempre!
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Descubra os melhores produtos na Amazon, escolhidos especialmente
+              Descubra as melhores ofertas, escolhidas especialmente
               para você.
             </p>
           </div>

@@ -53,7 +53,7 @@ export default function NotFound() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-primary rounded-full"></span>
-                    Aproveitar para fazer compras na Amazon
+                    Aproveitar para conferir outras ofertas
                   </li>
                 </ul>
               </div>

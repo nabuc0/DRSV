@@ -10,8 +10,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "DRSV - Site de Afiliados da Amazon",
-  description: "Descubra os melhores produtos na Amazon, cuidadosamente selecionados para você.",
+  title: "DRSV - As Melhores Ofertas! Sempre!", 
+  description: "Descubra as melhores ofertas, cuidadosamente selecionadas para você.",
   generator: "v0.dev",
   icons: {
     icon: [
@@ -39,7 +39,7 @@ export default function RootLayout({
                 &copy; {new Date().getFullYear()} DRSV. Todos os direitos reservados.
               </p>
               <p className="text-xs text-muted-foreground">
-                Como Afiliado da Amazon, recebo por compras qualificadas.
+                Como participante do programa de Afiliados, recebo por compras qualificadas.
               </p>
             </div>
           </footer>

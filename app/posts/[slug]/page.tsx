@@ -157,10 +157,7 @@ export default async function PostPage({ params }: PageProps) {
                         <div className="prose-section">
                             <div className="mt-12 text-sm text-muted-foreground p-4 bg-muted rounded-lg">
                                 <p>
-                                    <strong>Aviso:</strong> Como associado da Amazon, posso
-                                    receber comissão por compras qualificadas. Este post contém
-                                    links de afiliado, o que significa que posso receber uma
-                                    comissão se você clicar e comprar algum produto recomendado.
+                                    <strong>Aviso:</strong> Como participante de programas de afiliados, posso receber comissão por compras qualificadas. Este post contém links de afiliado, o que significa que posso receber uma comissão se você clicar e comprar algum produto recomendado.
                                 </p>
                             </div>
                         </div>

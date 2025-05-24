@@ -41,7 +41,7 @@ export default function ProductCard({ product }: ProductProps) {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-1"
               >
-                View on Amazon <ExternalLink className="h-3 w-3" />
+                Ver Oferta <ExternalLink className="h-3 w-3" />
               </a>
             </Button>
           </CardFooter>

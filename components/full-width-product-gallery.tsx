@@ -40,7 +40,7 @@ export default function FullWidthProductGallery({ products }: FullWidthProductGa
                       rel="noopener noreferrer"
                       className="flex items-center gap-1"
                     >
-                      Ver no Amazon <ExternalLink className="h-4 w-4 ml-1" />
+                      Ver Oferta <ExternalLink className="h-4 w-4 ml-1" />
                     </a>
                   </Button>
                 </div>
