@@ -19,6 +19,9 @@ export const metadata: Metadata = {
       { url: "/favicon.png", type: "image/png" },
     ],
   },
+  other: {
+    lomadee: '2324685'
+  },
 }
 
 export default function RootLayout({
