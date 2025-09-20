@@ -53,12 +53,7 @@ async function main() {
 
     for (let idx = 0; idx < rows.length; idx++) {
         const line = rows[idx];
-        const [query, forcedTitle, delFlag, dateStr] = line.split(',');
-
-        // 2) handle empty query or marked for deletion
-        if (!query?.trim()) {
-            continue;
-        }
+        const [query, forcedTitle, prodName, prodPrice, prodLink, prodImg, prodDesc, delFlag, dateStr, retailer] = line.split(',');
 
         const id = String(idx + 1);
 
@@ -81,49 +76,67 @@ async function main() {
             continue;
         }
 
-        // 3) fetch Amazon data (throttled)
-        let items = [];
-        try {
-            await new Promise(r => setTimeout(r, 1500));
-            const result = await searchAmazonProducts(query.trim());
-            await new Promise(r => setTimeout(r, 1500));
-            items = result?.SearchResult?.Items || [];
-        } catch (err) {
-            console.error(`Error searching Amazon for "${query}":`, err);
-        }
+        let productName = prodName || 'Produto';
+        let productLink = prodLink || 'https://drsv.com.br';
+        let description = prodDesc || 'Produto interessante que vale a pena conferir.';
+        let price = parseInt(prodPrice, 10) || 0;
 
-        if (!items.length) {
-            console.log(`→ No Amazon results for "${query}", skipping.`);
-            continue;
-        }
+        let productAsin = '';
+        let productBarcode = '';
+        let categoryName = 'Produtos';
+        let categorySlug = 'produtos';
+        let image = prodImg || COVER_IMAGE;
 
-        // 4) extract product info
-        const first = items[0];
-        const productName = first.ItemInfo?.Title?.DisplayValue || query.trim();
-        const productLink = first.DetailPageURL || '';
-        const productAsin = first.ASIN || '';
-        const eans = first.ItemInfo?.ExternalIds?.EANs?.DisplayValues || [];
-        const productBarcode = eans[0] || '';
-        const browseNodes = first.BrowseNodeInfo?.BrowseNodes || [];
-        const features = first.ItemInfo?.Features?.DisplayValues || [];
-        const description = features.join(', ');
-        const listing = first.Offers?.Listings?.[0];
-        const price = listing?.Price?.Amount || 0;
-        const image =
-            first.Images?.Primary?.Large?.URL ||
-            first.Images?.Primary?.Medium?.URL ||
-            COVER_IMAGE;
+        if (!retailer || retailer === 'Amazon') {
+            // 2) handle empty query or marked for deletion
+            if (!query?.trim()) {
+                continue;
+            }
 
-        // 5) ensure category is in data/categories.json
-        const categoryName = getDeepestContextFreeName(browseNodes[0] || {}) || 'Uncategorized';
-        const categorySlug = slugify(categoryName, { lower: true, strict: true }).slice(0, 20);
-        const categoriesFile = path.join(__dirname, 'data', 'categories.json');
-        const categoriesData = fs.readFileSync(categoriesFile, 'utf-8');
-        let categories = JSON.parse(categoriesData);
-        if (!categories.some(cat => cat.name === categoryName)) {
-            categories.push({ name: categoryName, slug: categorySlug, image: image || COVER_IMAGE });
-            fs.writeFileSync(categoriesFile, JSON.stringify(categories), 'utf-8');
-            console.log(`✓ Added new category: ${categoryName}`);
+            // 3) fetch Amazon data (throttled)
+            let items = [];
+            try {
+                await new Promise(r => setTimeout(r, 1500));
+                const result = await searchAmazonProducts(query.trim());
+                await new Promise(r => setTimeout(r, 1500));
+                items = result?.SearchResult?.Items || [];
+            } catch (err) {
+                console.error(`Error searching Amazon for "${query}":`, err);
+            }
+
+            if (!items.length) {
+                console.log(`→ No Amazon results for "${query}", skipping.`);
+                continue;
+            }
+
+            // 4) extract product info
+            const first = items[0];
+            productName = first.ItemInfo?.Title?.DisplayValue || query.trim();
+            productLink = first.DetailPageURL || '';
+            productAsin = first.ASIN || '';
+            const eans = first.ItemInfo?.ExternalIds?.EANs?.DisplayValues || [];
+            productBarcode = eans[0] || '';
+            const browseNodes = first.BrowseNodeInfo?.BrowseNodes || [];
+            const features = first.ItemInfo?.Features?.DisplayValues || [];
+            description = features.join(', ');
+            const listing = first.Offers?.Listings?.[0];
+            price = listing?.Price?.Amount || 0;
+            image =
+                first.Images?.Primary?.Large?.URL ||
+                first.Images?.Primary?.Medium?.URL ||
+                COVER_IMAGE;
+
+            // 5) ensure category is in data/categories.json
+            categoryName = getDeepestContextFreeName(browseNodes[0] || {}) || 'Sem Categoria';
+            const categorySlug = slugify(categoryName, { lower: true, strict: true }).slice(0, 20);
+            const categoriesFile = path.join(__dirname, 'data', 'categories.json');
+            const categoriesData = fs.readFileSync(categoriesFile, 'utf-8');
+            let categories = JSON.parse(categoriesData);
+            if (!categories.some(cat => cat.name === categoryName)) {
+                categories.push({ name: categoryName, slug: categorySlug, image: image || COVER_IMAGE });
+                fs.writeFileSync(categoriesFile, JSON.stringify(categories), 'utf-8');
+                console.log(`✓ Added new category: ${categoryName}`);
+            }
         }
 
         // 6) title & slug
